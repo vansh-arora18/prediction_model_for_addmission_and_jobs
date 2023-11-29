@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Jobs and Admissions Prediction</title>
+    <!--    <link href="styles.css" rel="stylesheet">-->
+
+
+    <style>
+/* Reset default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px;
+}
+
+.hero h2{
+    font-size: 40px;
+    font-family: Franklin Gothic Medium;
+}
+
+/* .search {
+  background-color: #CCCCC;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: Franklin Gothic Medium;
+  font-size: 16px;
+} */
+
+/* .search h3 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Franklin Gothic Medium;
+<!--  font-family: 'Poppins', sans-serif-->
+} */
+
+.container{
+    text-align: center;
+}
+
+
+.search form input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.search form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#result{
+    text-align:center;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+    <h1>Jobs and Admissions Prediction</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="Jobs.html">Jobs</a></li>
+            <li><a href="Admissions.html">Admissions</a></li>
+            <li><a href="AboutUs.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Welcome to our Jobs and Admissions Prediction Portal</h2>
+    <p><i>Get insights into job availability and admissions likelihood based on historical data and trends.</i></p>
+    <br>
+    <p>Jobs and admissions prediction aims to forecast the future trends and opportunities in the job market and
+        educational institutions. By leveraging data analysis and predictive modeling techniques, this field helps
+        individuals and organizations make informed decisions regarding career choices and educational pursuits. Through
+        analyzing factors such as industry growth, technological advancements, and demographic shifts, predictions can
+        be made about the availability of job positions and the competitiveness of admission processes. These
+        predictions provide valuable insights to job seekers, students, employers, and educational institutions,
+        enabling them to plan effectively and optimize their strategies for success in a dynamic and evolving
+        professional landscape.</p>
+</section>
+
+<section class="search">
+    <!--    <h3>Search for Job Predictions</h3>-->
+
+    <div>
+        <iframe allowFullScreen="true" frameborder="0" height="700"
+                src="https://app.powerbi.com/view?r=eyJrIjoiM2Y2YTkzNDItMDQxYy00OTFiLTliZmQtMjQ5ZDhmY2M3NGU3IiwidCI6IjM0YmQ4YmVkLTJhYzEtNDFhZS05ZjA4LTRlMGEzZjExNzA2YyJ9"
+                title="Report Section" width="1220"></iframe>
+    </div>
+
+
+        <!--        <form>-->
+        <!--            <input placeholder="Location" type="text">-->
+        <!--            <input placeholder="Industry" type="text">-->
+        <!--            <input placeholder="Skills" type="text">-->
+        <!--            <button type="submit">Search</button>-->
+        <!--        </form>-->
+</section>
+
+<section class="search">
+    <h3>Predict Your College</h3>
+    <form action="{{url_for('predict')}}" id="myform" method="post">
+
+        <div class="container">
+            <label for="AIEEE Rank">Enter Your Details</label>
+            <br>
+            <input id="AIEEE Rank" name="rank" placeholder="Enter AIEEE Rank" required="required"
+                   style="width:300px;text-align: center" type="text"/>
+            <br>
+            <input placeholder="Enter 10th Score" style="width:300px; text-align: center" type="text">
+            <br>
+            <input placeholder="Enter 12th Score" style="width:300px; text-align: center" type="text">
+            <br>
+            <br>
+            <button class="button-33 " form="myform" type="submit">
+                <strong>Predict your college</strong>
+            </button>
+        </div>
+
+        <div id="result">
+            <br>
+            <br>
+            <h1>{{ prediction_text }}</h1>
+            <a href="/Admissions.html">Get more Insights about admission.</a>
+        </div>
+    </form>
+</section>
+
+<footer>
+    <p id="contact">Contact us : +91-9229134654
+       <br>
+        Mail us at : admissionsandjobs@gmail.com </p>
+     <p style="font-size:10px; padding: 5px">&copy; 2023 Jobs and Admissions Predictions. All rights reserved.</p>
+</footer>
+</body>
+</html>
